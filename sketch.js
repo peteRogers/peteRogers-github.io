@@ -68,7 +68,7 @@ function sendToFirebase() {
     var flicks = database.ref('ticks');
 
     // Make an object with data in it
-    var t = ""+day()+":"+hour()+":"+minute()+":"+second()
+    var t = ""+day()+"/"+month()+" "+hour()+":"+minute()+":"+second()
     var data = {
         myTime: t
     }
