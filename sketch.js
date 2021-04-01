@@ -3,6 +3,7 @@ let video;
 let detections;
 let lastR = null;
 let wait = 0;
+let tot = 0;
 
 // by default all options are set to true
 const detection_options = {
@@ -50,9 +51,10 @@ function gotResults(err, result) {
     }
     // console.log(result)
     detections = result;
-
+    
     // background(220);
     background(0);
+    text(tot, 100, 100);
     // image(video, 0,0, width, height)
     if (detections) {
         if (detections.length > 0) {
@@ -68,6 +70,7 @@ function sendToFirebase() {
     var flicks = database.ref('ticks');
 
     // Make an object with data in it
+    tot = tot + 1;
     var t = ""+day()+"/"+month()+" "+hour()+":"+minute()+":"+second()
     var data = {
         myTime: t
